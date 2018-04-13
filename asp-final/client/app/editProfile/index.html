@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html>
+<head></head>
+<body>
+<h2>Add some detail to your profile</h2>
+Description: <input type='text' [(ngModel)]="description"><br />
+LinkedIn: <input type='text' [(ngModel)]="linked"><br />
+GitHub: <input type='text' [(ngModel)]="git"><br />
+
+<input type="submit" (click)="update(git, linked, description)"><br />
+<!-- Shows token after login is successful. -->
+Get Item by Id:
+<input type="text" [(ngModel)]="itemId">
+<button (click)="getUser(itemId)">Get Item</button><br/>
+<div *ngIf="userItem">
+{{userItem.Id}}: {{userItem.firstname}} <br/>
+</div> 
+<br /><br />
+Get List of ToDo's:
+<button (click)="getDetails()">Get List</button><br/>
+<div *ngFor="let user of users">
+{{currentUser.firstname}} :{{currentUser.lastname}} 
+{{user.userDetail.Description}}: {{user.userDetail.GitHub }} : {{user.userDetail.LinkedIn }} :
+</div> 
+ <br/>
+
+ Edit Item<br/>
+Id:
+<input type="number" [(ngModel)]="editItemId">
+GitHub:
+<input type="text" [(ngModel)]="editGit">
+Description:
+<input type="text" [(ngModel)]="editDescription">
+LinkedIn:
+<input type="text" [(ngModel)]="editLinked">
+
+<button (click)="editToDo(editGit,editDescription, editLinked)">Update</button><br/><br/>
+</body>
+</html>

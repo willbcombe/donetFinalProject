@@ -1,0 +1,44 @@
+<!-- Get and show list -->
+Get List of ToDo's:
+<button (click)="getItems()">Get List</button><br/>
+<div *ngFor="let Item of feeds">
+{{Item.id}}: {{Item.name}}: {{Item.post}}<br/> 
+</div> 
+ <br/>
+
+<!-- Get and show single item -->
+Get Item by Id:
+<input type="text" [(ngModel)]="itemId">
+<button (click)="getItem(itemId)">Get Item</button><br/>
+<div *ngIf="Item">
+{{Item.id}}: {{Item.name}} <br/>
+</div> 
+
+<!-- Create single item -->
+Create Item<br/>
+Name:
+<input type="text" [(ngModel)]="newItemName">
+Description:
+<input type="text" [(ngModel)]="newdescription">
+Completed? <input type="checkbox" [(ngModel)]="completed">
+<button (click)="createToDo(newItemName,newdescription, completed)">Create</button><br/>
+<div *ngIf="newToDo">
+{{newToDo.id}}: {{newToDo.name}} {{newToDo.isComplete}} <br/>
+</div> 
+
+<!-- Edit item -->
+Edit Item<br/>
+Id:
+<input type="text" [(ngModel)]="editItemId">
+Name:
+<input type="text" [(ngModel)]="editItemName">
+Descriptiom:
+<input type="text" [(ngModel)]="editdescription">
+Completed? <input type="checkbox" [(ngModel)]="editCompleted">
+<button (click)="editToDo(editItemId, editItemName, editdescription, editCompleted)">Update</button><br/><br/>
+
+<!-- Delete item -->
+Delete Item<br/>
+Id:
+<input type="text" [(ngModel)]="deleteItemId">
+<button (click)="deleteToDo(deleteItemId)">Delete</button><br/><br/>
